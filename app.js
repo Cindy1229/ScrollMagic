@@ -9,7 +9,7 @@ const flightPath={
 }
 
 
-
+//Path animation
 const tl=new TimelineLite();
 
 tl.add(
@@ -18,3 +18,18 @@ tl.add(
         ease: Power1.easeInOut
     })
 );
+
+
+//Scroll animation
+const controller=new ScrollMagic.Controller();
+
+const scroll=new ScrollMagic.Scene({
+    triggerElement: '.animation',
+    duration: 5000,
+    triggerHook: 0
+
+})
+.setTween(tl)
+.setPin('.animation')
+.addIndicators()
+.addTo(controller);
